@@ -4,18 +4,35 @@
  #212121 
  #303030
  #424242
- 
+
  COLOR PALETTE WINE
  #ee7272
  #a31818
  #6d0202
  #360000
- */
+*/
 
 .pane{
 	-fx-background-color:#360000;
 }
+.list-cell{
+	-fx-text-fill: white;
+	-fx-background-color: transparent;
+	-fx-border-color:transparent;
+}
+.list-cell:hover{
+	-fx-text-fill: white;
+	-fx-background-color: #a31818;
+}
+.list-cell:selected{
+	-fx-text-fill: white;
+	-fx-background-color: #a31818;
+	-fx-border-color:white;
+}
 
+.scroll-pane .viewport{
+	-fx-background-color: #a31818;
+}
 .textfield{
 }
 
@@ -39,12 +56,34 @@
 .tab .tab-label{
 	-fx-text-fill:white;
 }
-
 .button{
-	-fx-background-color:  white;
-	-fx-text-fill: black;
+	-fx-background-color: transparent;
+}
+
+.selectbutton{
+	-fx-border-color: white;
+	-fx-cursor: hand;
+	-fx-text-fill: white;
+}
+.selectbutton:hover{
+	-fx-background-color: #a31818;
 }
 
 .progress-indicator{
 	-fx-progress-color: white;
+}
+
+.combo-box {
+	-fx-background-color: #360000;
+}
+
+.combo-box .cell{
+	-fx-text-fill: white;
+}
+.combo-box-popup .list-view .list-cell{
+    -fx-background-color: #360000;
+}
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
 }

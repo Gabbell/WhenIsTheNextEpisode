@@ -157,4 +157,4 @@ function splitJvmOpts() {
 eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $WINE_OPTS
 
 
-exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" CalendarQuickstart "$@"
+exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" WINE "$@"

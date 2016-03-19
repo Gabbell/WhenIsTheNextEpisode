@@ -9,11 +9,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabrielbelanger.controller.splashController">
    <children>
-      <ImageView fitHeight="283.0" fitWidth="600.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="283.0" fitWidth="600.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/WINE.png" />
          </image>
       </ImageView>
-      <ProgressIndicator layoutX="274.0" layoutY="294.0" />
    </children>
 </AnchorPane>

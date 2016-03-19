@@ -35,4 +35,13 @@ public class JSonParsing {
 		
 		return jobj;
 	}
+	
+	//Verify if response is false
+	public static boolean isValidData(JsonObject jobj){
+		if (jobj.isJsonNull()){
+			return false;
+		}
+		else
+			return true;
+	}
 }
