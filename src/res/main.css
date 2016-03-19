@@ -1,0 +1,50 @@
+/* 
+ COLOR PALETTE DARK
+ #000000
+ #212121 
+ #303030
+ #424242
+ 
+ COLOR PALETTE WINE
+ #ee7272
+ #a31818
+ #6d0202
+ #360000
+ */
+
+.pane{
+	-fx-background-color:#360000;
+}
+
+.textfield{
+}
+
+.text-input{
+	-fx-background-color: #360000;
+	-fx-text-fill:white;
+}
+
+.tab{
+	-fx-background-color:#6d0202;
+}
+
+.tab-header-background{
+	-fx-background-color: #a31818;
+}
+	
+.tab-content-area{
+	-fx-background-color:#6d0202;
+}
+
+.tab .tab-label{
+	-fx-text-fill:white;
+}
+
+.button{
+	-fx-background-color:  white;
+	-fx-text-fill: black;
+}
+
+.progress-indicator{
+	-fx-progress-color: white;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-api-client-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-http-client-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-oauth-client-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-http-client-jackson2-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-oauth-client-java6-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/libs/google-oauth-client-jetty-1.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/google-api-java-client/google-api-services-calendar-v3-rev168-1.21.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/git/WINE/gson-2.6.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
