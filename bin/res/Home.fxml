@@ -28,7 +28,7 @@
             <content>
               <AnchorPane>
                      <children>
-                        <TextField fx:id="searchfield" layoutX="14.0" layoutY="14.0" onAction="#searchDatabase" promptText="Search for Series" />
+                        <TextField fx:id="searchfield" layoutX="16.0" layoutY="14.0" onAction="#searchDatabase" promptText="Search for Series" />
                         <ImageView fx:id="poster" fitHeight="245.7" fitWidth="162.0" layoutX="390.0" layoutY="9.0" pickOnBounds="true" AnchorPane.topAnchor="15.0">
                            <image>
                               <Image url="@../img/placeholder.png" />
@@ -94,12 +94,17 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="verifylabel" layoutX="203.0" layoutY="18.0" prefHeight="20.0" prefWidth="161.0" textFill="WHITE">
+                        <Label fx:id="verifylabel" layoutX="217.0" layoutY="18.0" prefHeight="20.0" prefWidth="147.0" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
                         <Button fx:id="watchlistbutton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#addToWatchlist" styleClass="selectbutton" text="Add to Watchlist" visible="false" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="179.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/searchicon.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>

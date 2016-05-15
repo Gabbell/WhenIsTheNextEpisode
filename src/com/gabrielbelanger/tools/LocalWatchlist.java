@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,6 +53,21 @@ public class LocalWatchlist {
 	public void addEntry(Entry inputentry) throws IOException{
 		watcharray.add(inputentry); //Add entry to the watcharray
 		obsarray.add(inputentry.getTitle());
+		
+		//Sorts the lists alphabetically
+		Collections.sort(watcharray, new Comparator<Entry>() {
+	        @Override
+	        public int compare(Entry e1, Entry e2) {
+	            return e1.getTitle().compareToIgnoreCase(e2.getTitle());
+	        }
+	    });
+		
+		Collections.sort(obsarray, new Comparator<String>() {
+	        @Override
+	        public int compare(String s1, String s2) {
+	            return s1.compareToIgnoreCase(s2);
+	        }
+	    });
 	}
 	public void removeEntry(int i){
 		obsarray.remove(i);

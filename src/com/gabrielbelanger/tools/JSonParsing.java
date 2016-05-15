@@ -39,6 +39,7 @@ public class JSonParsing {
 	//Verify if response is false
 	public static boolean isValidData(JsonObject jobj){
 		if (jobj.isJsonNull()){
+			System.out.println("json is null");
 			return false;
 		}
 		else

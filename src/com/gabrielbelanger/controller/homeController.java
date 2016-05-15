@@ -81,6 +81,7 @@ public class homeController implements Initializable {
 		Platform.runLater(new Runnable() {
             @Override public void run() {
                 searchfield.requestFocus();
+                
         		watchlistview.setItems(localwatch.getArray());
             }
         });
@@ -94,24 +95,25 @@ public class homeController implements Initializable {
  		//Replacing all spaces with hyphen for web syntax
  		searchinput = searchinput.replace(' ','+');
 		URL searchurl = new URL(mazeurl + "singlesearch/shows?q=" + searchinput);
+
  		JsonObject jsondb = JSonParsing.getGson(searchurl);
  		
- 		if (JSonParsing.isValidData(jsondb)){
+ 		if(JSonParsing.isValidData(jsondb)){
  			verifylabel.setText(""); //Data is valid, do not show wrong data message
- 			titlelabel.setText(jsondb.get("name").toString().replace("\"",""));
- 			releaselabel.setText(jsondb.get("premiered").toString().replace("\"",""));
- 			runtimelabel.setText(jsondb.get("runtime").toString().replace("\"",""));
- 			ratinglabel.setText(jsondb.get("rating").getAsJsonObject().get("average").toString().replace("\"", ""));
- 			typelabel.setText(jsondb.get("type").toString().replace("\"",""));
- 			idlabel.setText(jsondb.get("id").toString().replace("\"",""));
- 			
- 			//Checking existence of poster before setting it
- 			if(!jsondb.get("image").toString().equals("\"N/A\"")){
- 				poster.setImage(new Image(jsondb.get("image").getAsJsonObject().get("medium").toString().replace("\"","")));
- 			}
- 			
- 			watchlistbutton.setVisible(true);
- 		}
+			titlelabel.setText(jsondb.get("name").toString().replace("\"",""));
+			releaselabel.setText(jsondb.get("premiered").toString().replace("\"",""));
+			runtimelabel.setText(jsondb.get("runtime").toString().replace("\"",""));
+			ratinglabel.setText(jsondb.get("rating").getAsJsonObject().get("average").toString().replace("\"", ""));
+			typelabel.setText(jsondb.get("type").toString().replace("\"",""));
+			idlabel.setText(jsondb.get("id").toString().replace("\"",""));
+			
+			//Checking existence of poster before setting it
+			if(!jsondb.get("image").toString().equals("\"N/A\"")){
+				poster.setImage(new Image(jsondb.get("image").getAsJsonObject().get("medium").toString().replace("\"","")));
+			}
+			
+			watchlistbutton.setVisible(true);
+		}
  		else{
  			watchlistbutton.setVisible(false);
  			verifylabel.setText("Could not find data");
