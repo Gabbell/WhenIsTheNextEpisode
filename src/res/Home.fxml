@@ -33,7 +33,7 @@
                            <image>
                               <Image url="@../img/placeholder.png" />
                            </image></ImageView>
-                        <ProgressIndicator fx:id="searchprogress" layoutX="169.0" layoutY="10.0" prefHeight="33.0" prefWidth="20.0" visible="false" />
+                        <ProgressIndicator fx:id="searchprogress" layoutX="210.0" layoutY="10.0" prefHeight="33.0" prefWidth="20.0" visible="false" />
                         <Label layoutX="14.0" layoutY="43.0" text="Title:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
@@ -94,9 +94,9 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="verifylabel" layoutX="217.0" layoutY="18.0" prefHeight="20.0" prefWidth="147.0" textFill="WHITE">
+                        <Label fx:id="statuslabel" layoutX="5.0" layoutY="251.0" prefHeight="20.0" prefWidth="315.0" textFill="WHITE">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Courier New" size="14.0" />
                            </font>
                         </Label>
                         <Button fx:id="watchlistbutton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#addToWatchlist" styleClass="selectbutton" text="Add to Watchlist" visible="false" />
@@ -168,6 +168,7 @@
                         </Label>
                         <ComboBox fx:id="syncoption" prefHeight="25.0" prefWidth="226.0" GridPane.columnIndex="1" />
                         <ComboBox fx:id="watchoption" layoutX="141.0" layoutY="37.0" prefHeight="25.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="purgeButton" mnemonicParsing="false" onAction="#purgeWatchlist" styleClass="selectbutton" text="Purge Watchlist" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </content>

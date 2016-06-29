@@ -50,7 +50,7 @@ public class LocalWatchlist {
 		}
 	}
 	
-	public void addEntry(Entry inputentry) throws IOException{
+	public void addEntry(Entry inputentry) throws IOException{	
 		watcharray.add(inputentry); //Add entry to the watcharray
 		obsarray.add(inputentry.getTitle());
 		
@@ -73,9 +73,19 @@ public class LocalWatchlist {
 		obsarray.remove(i);
 		watcharray.remove(i);
 	}
+	public boolean isDuplicate(Entry inputentry){
+		//Verifying for duplicates
+		for(int i = 0; i < watcharray.size(); i++){
+			if (inputentry.getTitle().equals(watcharray.get(i).getTitle())){
+				return true;
+			}
+		}
+		return false;
+	}
 	public void dumpArray() throws IOException{
 		oostream.writeObject(watcharray);
 	}
+	
 	//Setters
 	public void setWatchArray(ArrayList<Entry> watcharray){
 		this.watcharray = watcharray;

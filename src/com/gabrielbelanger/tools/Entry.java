@@ -12,7 +12,6 @@ public class Entry implements Serializable{
 	private String release;
 	private String runtime;
 	private String rating;
-	private String score;
 	private String type;
 	private String id;
 	

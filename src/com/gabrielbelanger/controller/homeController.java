@@ -36,7 +36,7 @@ public class homeController implements Initializable {
 	TextField searchfield;
 	//Series/Movie info labels
 	@FXML
-	Label verifylabel,titlelabel,releaselabel, runtimelabel, ratinglabel, typelabel, idlabel;
+	Label statuslabel,titlelabel,releaselabel, runtimelabel, ratinglabel, typelabel, idlabel;
 	
 	@FXML
 	Label connectedlabel;
@@ -45,7 +45,7 @@ public class homeController implements Initializable {
 	ListView<String> watchlistview;
 
 	@FXML
-	Button exitbutton,connectbutton,watchlistbutton;
+	Button exitbutton,connectbutton,watchlistbutton,purgeButton;
 	
 	@FXML
 	ProgressIndicator syncprogress,searchprogress;
@@ -85,49 +85,91 @@ public class homeController implements Initializable {
         		watchlistview.setItems(localwatch.getArray());
             }
         });
+		
+		//Shutdown hook to dump array into the file
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+		    public void run() {
+				try {
+					//Dumps array in the watchlist file and closes stream
+					localwatch.dumpArray();
+					localwatch.closeStream();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		    }
+		}));
 	}
 	
 	//Enter has been pressed in the search field, search the database
-	public void searchDatabase(ActionEvent event) throws MalformedURLException{
+	public void searchDatabase(ActionEvent event) throws MalformedURLException {
 		searchprogress.setVisible(true);
-		
- 		String searchinput = searchfield.getText();
- 		//Replacing all spaces with hyphen for web syntax
- 		searchinput = searchinput.replace(' ','+');
-		URL searchurl = new URL(mazeurl + "singlesearch/shows?q=" + searchinput);
+		Thread t = new Thread(new Runnable() {
 
- 		JsonObject jsondb = JSonParsing.getGson(searchurl);
- 		
- 		if(JSonParsing.isValidData(jsondb)){
- 			verifylabel.setText(""); //Data is valid, do not show wrong data message
-			titlelabel.setText(jsondb.get("name").toString().replace("\"",""));
-			releaselabel.setText(jsondb.get("premiered").toString().replace("\"",""));
-			runtimelabel.setText(jsondb.get("runtime").toString().replace("\"",""));
-			ratinglabel.setText(jsondb.get("rating").getAsJsonObject().get("average").toString().replace("\"", ""));
-			typelabel.setText(jsondb.get("type").toString().replace("\"",""));
-			idlabel.setText(jsondb.get("id").toString().replace("\"",""));
-			
-			//Checking existence of poster before setting it
-			if(!jsondb.get("image").toString().equals("\"N/A\"")){
-				poster.setImage(new Image(jsondb.get("image").getAsJsonObject().get("medium").toString().replace("\"","")));
+			public void run() {
+
+				String searchinput = searchfield.getText();
+				// Replacing all spaces with hyphen for web syntax
+				searchinput = searchinput.replace(' ', '+');
+				URL searchurl;
+				try {
+					searchurl = new URL(mazeurl + "singlesearch/shows?q=" + searchinput);
+
+					JsonObject jsondb = JSonParsing.getGson(searchurl);
+
+					Platform.runLater(new Runnable() {
+
+						@Override
+						public void run() {
+							if (JSonParsing.isValidData(jsondb)) {
+								statuslabel.setText(""); // Data is valid, do not show wrong data message
+								titlelabel.setText(jsondb.get("name").toString().replace("\"", ""));
+								releaselabel.setText(jsondb.get("premiered").toString().replace("\"", ""));
+								runtimelabel.setText(jsondb.get("runtime").toString().replace("\"", ""));
+								ratinglabel.setText(jsondb.get("rating").getAsJsonObject().get("average").toString().replace("\"", ""));
+								typelabel.setText(jsondb.get("type").toString().replace("\"", ""));
+								idlabel.setText(jsondb.get("id").toString().replace("\"", ""));
+
+								// Checking existence of poster before setting it
+								if (!jsondb.get("image").toString().equals("\"N/A\"")) {
+									poster.setImage(new Image(jsondb.get("image").getAsJsonObject().get("medium").toString().replace("\"", "")));
+								}
+
+								watchlistbutton.setVisible(true);
+								statuslabel.setText("Data updated");
+							} 
+							else {
+								watchlistbutton.setVisible(false);
+								statuslabel.setText("Could not find data");
+							}
+
+							searchprogress.setVisible(false);
+
+						}
+					});
+
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
-			
-			watchlistbutton.setVisible(true);
-		}
- 		else{
- 			watchlistbutton.setVisible(false);
- 			verifylabel.setText("Could not find data");
- 			System.out.println("Data not found");
- 		}
-
-		searchprogress.setVisible(false);
+		});
+		t.start();
 	}
+
 	public void getNextEpisode(ActionEvent event) throws MalformedURLException{
 		System.out.println();
 		URL searchurl = new URL(mazeurl + "shows/" + localwatch.getEntry(watchlistview.getSelectionModel().getSelectedIndex()).getId());
  		JsonObject jsondb = JSonParsing.getGson(searchurl);
  		
- 		searchurl = new URL(jsondb.get("_links").getAsJsonObject().get("nextepisode").getAsJsonObject().get("href").toString().replace("\"", ""));
+ 		//Trying to find next episode, if null, return error message
+ 		try{
+ 			searchurl = new URL(jsondb.get("_links").getAsJsonObject().get("nextepisode").getAsJsonObject().get("href").toString().replace("\"", ""));
+ 		}
+ 		catch (NullPointerException e){
+ 			searchurl = null;
+ 			System.out.println("No next episode was found");
+ 		}
  		
  		jsondb = JSonParsing.getGson(searchurl);
 	}
@@ -137,21 +179,36 @@ public class homeController implements Initializable {
 		Entry entry = new Entry(titlelabel.getText(), releaselabel.getText(), runtimelabel.getText(),
 				ratinglabel.getText(), typelabel.getText(), idlabel.getText());
 		
-		//Add entry to watchlist
-		localwatch.addEntry(entry);
-		
-		System.out.println("Added to watchlist");
+		//Verifying if a duplicate exist in the list and adding accordingly
+		if(!localwatch.isDuplicate(entry)){
+			localwatch.addEntry(entry);
+			statuslabel.setText("Entry added to watchlist");
+		}
+		else{
+			statuslabel.setText("Duplicate found, entry not added");
+		}
 	}
+	
+	//Remove the selected entry from the LocalWatchlist
 	public void removeFromWatchlist(){
 		int i = watchlistview.getSelectionModel().getSelectedIndex();
 		localwatch.removeEntry(i);
 	}
+	
+	//Removes every entry in the LocalWatchlist
+	public void purgeWatchlist(){
+		int initialSize = localwatch.getSize();
+		
+		for (int i = 0; i < initialSize; i++){
+			localwatch.removeEntry(0);
+		}
+	}
+	
 	//X button was pressed, exit the program
 	public void exitProgram(ActionEvent event) throws IOException{
-		localwatch.dumpArray(); //Dumps array in the watchlist file
-		localwatch.closeStream();
 		System.exit(0);
 	}
+	
 	public void glowOn(MouseEvent event){
 		((Node) event.getSource()).setEffect(new Glow(1));
 	}

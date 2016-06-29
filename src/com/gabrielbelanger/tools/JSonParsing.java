@@ -2,6 +2,7 @@ package com.gabrielbelanger.tools;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -26,8 +27,8 @@ public class JSonParsing {
 	        
 	        jobj = new Gson().fromJson(receivedstring, JsonObject.class);
 		} 
-		catch (Exception e) {
-			e.printStackTrace();
+		catch (IOException e) {
+			return null;
 		}
 		finally{
 			connection.disconnect();
@@ -38,7 +39,7 @@ public class JSonParsing {
 	
 	//Verify if response is false
 	public static boolean isValidData(JsonObject jobj){
-		if (jobj.isJsonNull()){
+		if (jobj == null){
 			System.out.println("json is null");
 			return false;
 		}
