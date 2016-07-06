@@ -4,14 +4,19 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 
 import com.gabrielbelanger.tools.Entry;
+import com.gabrielbelanger.tools.DateManipulator;
 import com.gabrielbelanger.tools.GoogleAuth;
 import com.gabrielbelanger.tools.JSonParsing;
 import com.gabrielbelanger.tools.LocalWatchlist;
-import com.google.gson.JsonArray;
+import com.google.api.client.util.DateTime;
+import com.google.api.services.calendar.model.Calendar;
+import com.google.api.services.calendar.model.CalendarList;
+import com.google.api.services.calendar.model.CalendarListEntry;
+import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.EventDateTime;
 import com.google.gson.JsonObject;
 
 import javafx.application.Platform;
@@ -29,6 +34,8 @@ import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 public class homeController implements Initializable {
 	
@@ -39,7 +46,7 @@ public class homeController implements Initializable {
 	Label statuslabel,titlelabel,releaselabel, runtimelabel, ratinglabel, typelabel, idlabel;
 	
 	@FXML
-	Label connectedlabel;
+	Label connectlabel;
 	
 	@FXML
 	ListView<String> watchlistview;
@@ -54,11 +61,20 @@ public class homeController implements Initializable {
 	ImageView poster;
 	
 	@FXML
+	Circle statuscircle;
+	
+	@FXML
 	ComboBox<String> syncoption;
 	
 	private LocalWatchlist localwatch = new LocalWatchlist();
+	private DateManipulator datemanip = new DateManipulator();
 	private String mazeurl = "http://api.tvmaze.com/";
+	private URL searchurl;
 	private HttpURLConnection connection;
+	private com.google.api.services.calendar.Calendar service;
+	
+	private String calendarId;
+	private boolean isConnected = false;
 	
 	@Override
 	public void initialize(URL fxmlfilelocation, ResourceBundle resources) {
@@ -83,6 +99,7 @@ public class homeController implements Initializable {
                 searchfield.requestFocus();
                 
         		watchlistview.setItems(localwatch.getArray());
+        		watchlistview.getSelectionModel().selectFirst(); //Select first item in watchlist to prevent out of bounds index
             }
         });
 		
@@ -110,7 +127,7 @@ public class homeController implements Initializable {
 				String searchinput = searchfield.getText();
 				// Replacing all spaces with hyphen for web syntax
 				searchinput = searchinput.replace(' ', '+');
-				URL searchurl;
+
 				try {
 					searchurl = new URL(mazeurl + "singlesearch/shows?q=" + searchinput);
 
@@ -124,7 +141,7 @@ public class homeController implements Initializable {
 								statuslabel.setText(""); // Data is valid, do not show wrong data message
 								titlelabel.setText(jsondb.get("name").toString().replace("\"", ""));
 								releaselabel.setText(jsondb.get("premiered").toString().replace("\"", ""));
-								runtimelabel.setText(jsondb.get("runtime").toString().replace("\"", ""));
+								runtimelabel.setText(jsondb.get("runtime").toString().replace("\"", "") + " minutes");
 								ratinglabel.setText(jsondb.get("rating").getAsJsonObject().get("average").toString().replace("\"", ""));
 								typelabel.setText(jsondb.get("type").toString().replace("\"", ""));
 								idlabel.setText(jsondb.get("id").toString().replace("\"", ""));
@@ -157,21 +174,77 @@ public class homeController implements Initializable {
 		t.start();
 	}
 
-	public void getNextEpisode(ActionEvent event) throws MalformedURLException{
+	public void syncNextEpisode() throws IOException{
 		System.out.println();
-		URL searchurl = new URL(mazeurl + "shows/" + localwatch.getEntry(watchlistview.getSelectionModel().getSelectedIndex()).getId());
- 		JsonObject jsondb = JSonParsing.getGson(searchurl);
+		syncprogress.setVisible(true);
+		
+		//Creating new thread for syncing
+		Thread t = new Thread(new Runnable() {
+			public void run() {
  		
- 		//Trying to find next episode, if null, return error message
- 		try{
- 			searchurl = new URL(jsondb.get("_links").getAsJsonObject().get("nextepisode").getAsJsonObject().get("href").toString().replace("\"", ""));
- 		}
- 		catch (NullPointerException e){
- 			searchurl = null;
- 			System.out.println("No next episode was found");
- 		}
- 		
- 		jsondb = JSonParsing.getGson(searchurl);
+		 		//Trying to find next episode, if null, return error message
+		 		try{
+		 			searchurl = new URL(mazeurl + "shows/" + localwatch.getEntry(watchlistview.getSelectionModel().getSelectedIndex()).getId());
+		 	 		JsonObject jsondb = JSonParsing.getGson(searchurl);
+		 	 		
+		 			searchurl = new URL(jsondb.get("_links").getAsJsonObject().get("nextepisode").getAsJsonObject().get("href").toString().replace("\"", ""));
+		 	 		jsondb = JSonParsing.getGson(searchurl);
+		 	 		
+		 	 		if(isConnected){
+		 		 		
+		 		 		//Creating episode event
+		 		 		Event episodeevent = new Event()
+		 		 			    .setSummary(localwatch.getEntry(watchlistview.getSelectionModel().getSelectedIndex()).getTitle())
+		 		 			    .setDescription(jsondb.get("name").toString() + "\n" + "Season " + jsondb.get("season").toString() + ", Episode " + jsondb.get("number").toString());
+		 		 		
+		 		 		//Get airdate and airtime of next episode as string
+		 		 		String datestring = jsondb.get("airstamp").toString().replace("\"", "");
+		 		 		int runtime = Integer.parseInt(jsondb.get("runtime").toString());
+		 		 		
+		 		 		DateTime startstamp = new DateTime(datestring);
+		 		 		DateTime endstamp = datemanip.addMinutes(startstamp, runtime);
+		 		 		
+		 		 			    
+		 		 		EventDateTime starttime = new EventDateTime()
+		 		 				.setDateTime(startstamp);	
+		 		 		EventDateTime endtime = new EventDateTime()
+		 		 				.setDateTime(endstamp);
+		 		 		episodeevent.setStart(starttime);
+		 		 		episodeevent.setEnd(endtime);
+		
+		 		 		//End time was found, insert event in calendar
+		 		 		service.events().insert(calendarId, episodeevent).execute();
+		 		 		Platform.runLater(new Runnable() {
+		 		 				public void run(){
+		 		 		statuslabel.setText("Next episode synced");}});
+		 		 	}
+		 	 		
+		 	 		else {
+		 		 		Platform.runLater(new Runnable() {
+	 		 				public void run(){
+	 		 		statuslabel.setText("Google account not connected");}});
+		 	 		}
+		 		}
+		 		//No next episode was found
+		 		catch (NullPointerException e){
+		 			searchurl = null;
+	 		 		Platform.runLater(new Runnable() {
+ 		 				public void run(){
+ 		 		statuslabel.setText("No next episode found");}});
+		 		}
+		 		//URL was misformed
+		 		catch (MalformedURLException e) {
+					e.printStackTrace();
+				} 
+		 		catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		t.start();
+		
+		syncprogress.setVisible(false);
 	}
 	
 	//Button Methods
@@ -215,52 +288,65 @@ public class homeController implements Initializable {
 	public void glowOff(MouseEvent event){
 		((Node) event.getSource()).setEffect(null);
 	}
-	public void syncWithCalendar(){ //FIXME Temporary Function Implementation
-		localwatch.print();
-	}
-	public void googleConnect() throws IOException{
-		GoogleAuth.getCalendarService();
-	}
 	
-	@Deprecated
-	public void getNextEpisodeDepecrated(ActionEvent event) throws MalformedURLException{
-		String episodeid = localwatch.getEntry(watchlistview.getSelectionModel().getSelectedIndex()).getId();
-		JsonObject jsondb;
-		JsonArray episodearray;
-		int seasonindex = 0; // Season index
-		int episodeindex = 0; // Episode index
-		Calendar currentdate = Calendar.getInstance();// Current data
-		Calendar episodedate = Calendar.getInstance();// Episode date
-		String[] datestring;
-		int year,month,date;
-		
-		do{
-			seasonindex++;
-			URL searchurl = new URL(mazeurl + "i=" + episodeid + "&Season=" + seasonindex);
-			jsondb = JSonParsing.getGson(searchurl);
-		}
-		while(JSonParsing.isValidData(jsondb));
-		
-		seasonindex--; //Last valid season
-		URL searchurl = new URL(mazeurl + "i=" + episodeid + "&Season=" + seasonindex);
-		jsondb = JSonParsing.getGson(searchurl);
-		
-		//Going through episodes and comparing with current data to get next episode
-		episodearray = jsondb.getAsJsonArray("Episodes");
-		do{
-			jsondb = episodearray.get(episodeindex).getAsJsonObject(); //Using same "jsondb" for other purpose
+	public void googleConnect(){
+		//Attempting to connect to calendar service
+		try {
+			service = GoogleAuth.getCalendarService();
+			statuscircle.setFill(Color.GREEN); //Connection was successful, light is green
+			isConnected = true;
 			
-			datestring = jsondb.get("Released").toString().replace("\"","").split("-");
-			year = Integer.parseInt(datestring[0]);
-			month = Integer.parseInt(datestring[1]);
-			date = Integer.parseInt(datestring[2]);
-			
-			episodedate.set(year, month - 1, date);
-			episodeindex++;
+			createWineCalendar();
 		}
-		while(episodeindex < episodearray.size() && episodedate.compareTo(currentdate) < 0);
+		catch (IOException e) {
+			System.out.println("Credentials were not obtained");
+			isConnected = false;
+			
+			e.printStackTrace();
+		}
+	}
+	public void syncWithCalendar() throws IOException{
+		statuslabel.setText("Started synchronization");
+		//TODO Delete previous calendar
 		
-		episodeindex--;
-		System.out.println(episodearray.get(episodeindex));
+		watchlistview.getSelectionModel().selectFirst();
+		for(int i = 0 ; i < localwatch.getSize(); i++){
+			syncNextEpisode();
+			watchlistview.getSelectionModel().selectNext();
+		}
+		
+		statuslabel.setText("Synchronization done");
+	}
+	public void createWineCalendar() throws IOException{
+		boolean alreadyExists = false;
+		
+		//Going through the users calendar to find the WINE calendar and fetching the ID
+		String pageToken = null;
+		do {
+		  CalendarList calendarList = service.calendarList().list().setPageToken(pageToken).execute();
+		  java.util.List<CalendarListEntry> items = calendarList.getItems();
+
+		  for (CalendarListEntry calendarListEntry : items) {
+		    if(calendarListEntry.getSummary().equals("WINE")){
+		    	alreadyExists = true;
+		    	calendarId = calendarListEntry.getId();
+		    }
+		  }
+		  pageToken = calendarList.getNextPageToken();
+		} 
+		while (pageToken != null);
+		
+		//If calendar does not exist, create one
+		if(!alreadyExists){
+			// Create a new calendar
+			com.google.api.services.calendar.model.Calendar calendar = new Calendar();
+			calendar.setSummary("WINE");
+			calendar.setTimeZone("America/Montreal");
+
+			// Insert the new calendar
+			Calendar createdCalendar = service.calendars().insert(calendar).execute();
+
+			calendarId = createdCalendar.getId();
+		}
 	}
 }

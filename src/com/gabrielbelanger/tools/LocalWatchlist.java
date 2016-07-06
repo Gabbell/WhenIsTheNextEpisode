@@ -76,7 +76,7 @@ public class LocalWatchlist {
 	public boolean isDuplicate(Entry inputentry){
 		//Verifying for duplicates
 		for(int i = 0; i < watcharray.size(); i++){
-			if (inputentry.getTitle().equals(watcharray.get(i).getTitle())){
+			if (inputentry.getId().equals(watcharray.get(i).getId())){
 				return true;
 			}
 		}
@@ -111,7 +111,7 @@ public class LocalWatchlist {
 	}
 	public void print(){
 		for(int i = 0; i < watcharray.size(); i++){
-			System.out.println(watcharray.get(i).getTitle());
+			System.out.println(watcharray.get(i).getTitle() + "\t\t\t" + watcharray.get(i).getId());
 		}
 	}
 	

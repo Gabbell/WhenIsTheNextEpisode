@@ -20,8 +20,8 @@
          </image>
       </ImageView>
       <Button fx:id="connectbutton" layoutX="478.0" layoutY="47.0" mnemonicParsing="false" onAction="#googleConnect" prefHeight="27.0" prefWidth="70.0" styleClass="selectbutton" text="Connect" textFill="WHITE" />
-      <Label fx:id="connectedlabel" layoutX="300.0" layoutY="40.0" prefHeight="41.0" prefWidth="178.0" text="Connect your Google Account (will open web browser)" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <Circle fill="#bc0000" layoutX="575.0" layoutY="61.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+      <Label fx:id="connectlabel" layoutX="300.0" layoutY="40.0" prefHeight="41.0" prefWidth="178.0" text="Connect your Google Account (will open web browser)" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Circle fx:id="statuscircle" fill="#bc0000" layoutX="575.0" layoutY="61.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
       <TabPane layoutX="17.0" layoutY="131.0" prefHeight="304.0" prefWidth="566.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Add a Series">
@@ -94,11 +94,6 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="statuslabel" layoutX="5.0" layoutY="251.0" prefHeight="20.0" prefWidth="315.0" textFill="WHITE">
-                           <font>
-                              <Font name="Courier New" size="14.0" />
-                           </font>
-                        </Label>
                         <Button fx:id="watchlistbutton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#addToWatchlist" styleClass="selectbutton" text="Add to Watchlist" visible="false" />
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="179.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -121,10 +116,10 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="533.0">
                      <children>
                         <Button fx:id="syncbutton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#syncWithCalendar" styleClass="selectbutton" text="Synchronize" textFill="WHITE" />
-                        <ProgressIndicator fx:id="syncprogress" layoutX="99.0" layoutY="6.0" prefHeight="27.0" prefWidth="26.0" />
+                        <ProgressIndicator fx:id="syncprogress" layoutX="99.0" layoutY="6.0" prefHeight="27.0" prefWidth="26.0" visible="false" />
                         <ListView fx:id="watchlistview" layoutY="40.0" prefHeight="235.0" prefWidth="566.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
                         <Button fx:id="removebutton" layoutX="462.0" layoutY="7.0" mnemonicParsing="false" onAction="#removeFromWatchlist" styleClass="selectbutton" text="Remove Entry" textFill="WHITE" />
-                        <Button fx:id="nextepisodebutton" layoutX="325.0" layoutY="7.0" mnemonicParsing="false" onAction="#getNextEpisode" styleClass="selectbutton" text="Get Next Episode" textFill="WHITE" />
+                        <Button fx:id="nextepisodebutton" layoutX="325.0" layoutY="7.0" mnemonicParsing="false" onAction="#syncNextEpisode" styleClass="selectbutton" text="Sync Next Episode" textFill="WHITE" />
                      </children>
                   </AnchorPane>
             </content>
@@ -195,5 +190,10 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </Button>
+      <Label fx:id="statuslabel" alignment="CENTER_RIGHT" layoutX="289.0" layoutY="111.0" prefHeight="20.0" prefWidth="293.0" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Courier New" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

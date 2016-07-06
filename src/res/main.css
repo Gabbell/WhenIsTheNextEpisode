@@ -29,6 +29,13 @@
 	-fx-background-color: #a31818;
 	-fx-border-color:white;
 }
+.scroll-bar:horizontal , .scroll-bar:vertical{
+	 -fx-background-color:transparent;
+}
+.scroll-bar:horizontal .thumb , .scroll-bar:vertical .thumb{
+	 -fx-background-color: white;
+}
+
 
 .scroll-pane .viewport{
 	-fx-background-color: #a31818;

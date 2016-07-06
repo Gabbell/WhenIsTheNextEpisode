@@ -1,12 +1,12 @@
 package com.gabrielbelanger.tools;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
-import com.gabrielbelanger.controller.homeController;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -26,7 +26,7 @@ public class GoogleAuth {
 
     /** Directory to store user credentials for this application. */
     private static final java.io.File DATA_STORE_DIR = new java.io.File(
-        System.getProperty("user.home"), ".credentials/calendar-java-quickstart.json");
+        System.getProperty("user.home"), ".credentials/WINE.json");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
     private static FileDataStoreFactory DATA_STORE_FACTORY;
@@ -55,17 +55,11 @@ public class GoogleAuth {
             System.exit(1);
         }
     }
-
-	public void googleConnect() throws IOException{
-        com.google.api.services.calendar.Calendar service =
-                getCalendarService();
-
-		
-	}
+    
 	public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            homeController.class.getResourceAsStream("/client_secret.json");
+        	new FileInputStream("src/res/client_secret.json"); ; //TODO Relative path plz
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -82,8 +76,7 @@ public class GoogleAuth {
                 "Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
         return credential;
     }
-	public static com.google.api.services.calendar.Calendar
-    getCalendarService() throws IOException {
+	public static com.google.api.services.calendar.Calendar getCalendarService() throws IOException {
     Credential credential = authorize();
     return new com.google.api.services.calendar.Calendar.Builder(
             HTTP_TRANSPORT, JSON_FACTORY, credential)
