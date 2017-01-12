@@ -45,7 +45,6 @@ public class Wine extends Application{
 		primaryStage.show();
 		
 		showHome(primaryStage);
-	
 	}
 	
 	public void showHome(Stage primaryStage) throws IOException{
