@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 
 public class LocalWatchlist {
 	
-	private File watchfile = new File("src/data/local.watchlist");
+	private File watchfile = new File(System.getProperty("user.home") + "/Documents/WINE/local.watchlist");
 	private ArrayList<Entry> watcharray = new ArrayList<Entry>();
 	private ObservableList<String> obsarray = FXCollections.observableArrayList();
 	
@@ -25,29 +25,24 @@ public class LocalWatchlist {
 	@SuppressWarnings("unchecked")
 	public LocalWatchlist(){
 		//Verifying if local watchlist exist, if not, create one. Assign input and output streams
-		if (!watchfile.exists()){
-			try {
-				watchfile.createNewFile();
-				oostream = new ObjectOutputStream(new FileOutputStream(watchfile));
-			} 
-			catch (IOException e) {
-				e.printStackTrace();
-			}
+        try {
+            if (!watchfile.exists()){
+                watchfile.getParentFile().mkdirs();
+                watchfile.createNewFile();
+                oostream = new ObjectOutputStream(new FileOutputStream(watchfile));
+            }
+            else{
+                System.out.println("Detected Existing Local Watchfile");
+                oistream = new ObjectInputStream(new FileInputStream(watchfile));
+                watcharray = (ArrayList<Entry>) oistream.readObject();
+                oistream.close();
+
+                oostream = new ObjectOutputStream(new FileOutputStream(watchfile)); //Appending since header is already there
+            }
 		}
-		
-		else{
-			System.out.println("Detected Existing Local Watchfile");
-			try {
-				oistream = new ObjectInputStream(new FileInputStream(watchfile));
-				watcharray = (ArrayList<Entry>) oistream.readObject();
-				oistream.close();
-				
-				oostream = new ObjectOutputStream(new FileOutputStream(watchfile)); //Appending since header is already there
-			}
-			catch (ClassNotFoundException | IOException e) {
-				e.printStackTrace();
-			}
-		}
+        catch (ClassNotFoundException | IOException e) {
+            System.out.println("Your watchlist is corrupted. Please purge it.");
+        }
 	}
 	
 	public void addEntry(Entry inputentry) throws IOException{	
@@ -73,6 +68,18 @@ public class LocalWatchlist {
 		obsarray.remove(i);
 		watcharray.remove(i);
 	}
+
+    public void purgeIt(){
+        try {
+            watchfile.delete();
+            watchfile.createNewFile();
+            oostream = new ObjectOutputStream(new FileOutputStream(watchfile));
+        }
+        catch (IOException e){
+            System.out.println("There was an error in purging the watchlist. Could not create a new one.");
+        }
+    }
+
 	public boolean isDuplicate(Entry inputentry){
 		//Verifying for duplicates
 		for(int i = 0; i < watcharray.size(); i++){
@@ -102,6 +109,7 @@ public class LocalWatchlist {
 	public Entry getEntry(int i){
 		return watcharray.get(i);
 	}
+
 	public ObservableList<String> getArray(){
 		obsarray.clear();
 		for(int i = 0; i < watcharray.size(); i++){
@@ -109,6 +117,7 @@ public class LocalWatchlist {
 		}
 		return obsarray;
 	}
+
 	public void print(){
 		for(int i = 0; i < watcharray.size(); i++){
 			System.out.println(watcharray.get(i).getTitle() + "\t\t\t" + watcharray.get(i).getId());

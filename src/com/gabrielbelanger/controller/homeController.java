@@ -57,7 +57,7 @@ public class homeController implements Initializable {
 	ListView<String> watchlistView;
 
 	@FXML
-	Button exitButton, connectButton, watchlistButton,purgeButton;
+	Button exitButton, connectButton, watchlistButton, purgeButton;
 	
 	@FXML
 	ProgressIndicator syncProgress, searchProgress;
@@ -260,11 +260,7 @@ public class homeController implements Initializable {
 	
 	//Removes every entry in the LocalWatchlist
 	public void purgeWatchlist(){
-		int initialSize = localWatch.getSize();
-		
-		for (int i = 0; i < initialSize; i++){
-			localWatch.removeEntry(0);
-		}
+        localWatch.purgeIt();
 	}
 	
 	//X button was pressed, exit the program
@@ -283,30 +279,49 @@ public class homeController implements Initializable {
 		Thread t = new Thread(new Runnable() {
 
 			public void run() {
-				//Attempting to connect to calendar service
-				try {
-					service = GoogleAuth.getCalendarService();
-					createWineCalendar();
-					
-					Platform.runLater(new Runnable() { public void run() {
-						statusCircle.setFill(Color.GREEN); //Connection was successful, light is green
-						statusLabel.setText("Google account connected");
-					}});
-					
-					isConnected = true;
-				}
-				catch (IOException e) {
-					System.out.println("Credentials were not obtained");
-					isConnected = false;
-					
-					e.printStackTrace();
-				}
+                if (!isConnected) {
+                    //Attempting to connect to calendar service
+                    try {
+                        service = GoogleAuth.getCalendarService();
+                        createWineCalendar();
+
+                        Platform.runLater(new Runnable() {
+                            public void run() {
+                                statusCircle.setFill(Color.GREEN); //Connection was successful, light is green
+                                statusLabel.setText("Google account connected");
+                                connectButton.setText("Log Out");
+                            }
+                        });
+
+                        isConnected = true;
+                    } catch (IOException e) {
+                        System.out.println("Credentials were not obtained");
+                        isConnected = false;
+
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    try {
+                        GoogleAuth.logout();
+
+                        Platform.runLater(new Runnable() {
+                            public void run() {
+                                statusCircle.setFill(Color.RED); //Connection was successful, light is green
+                                statusLabel.setText("Google account disconnected");
+                                connectButton.setText("Log In");
+                            }
+                        });
+
+                        isConnected = false;
+                    }
+                    catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
 			}
 		});
 		t.start();
-	}
-	public void syncEpisodes(){
-        syncAllNext();
 	}
 
     public void syncAllNext(){
@@ -362,7 +377,12 @@ public class homeController implements Initializable {
                     });
                 }
                 else {
-                    statusLabel.setText("Google account not connected");
+                    Platform.runLater(new Runnable() {
+                        public void run() {
+                            syncProgress.setVisible(false);
+                            statusLabel.setText("Google account not connected");
+                        }
+                    });
                 }
             }
         });

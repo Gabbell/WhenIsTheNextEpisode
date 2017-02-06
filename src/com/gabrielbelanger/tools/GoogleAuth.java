@@ -18,6 +18,9 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.calendar.CalendarScopes;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 public class GoogleAuth {
     /** Application name. */
@@ -59,7 +62,7 @@ public class GoogleAuth {
 	public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-        	new FileInputStream("src/res/client_secret.json"); ; //TODO Relative path plz
+        	new FileInputStream("C:/Users/Gabriel/git/WINE_Desktop/src/res/client_secret.json"); ; //TODO Relative path plz
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -82,6 +85,14 @@ public class GoogleAuth {
             HTTP_TRANSPORT, JSON_FACTORY, credential)
             .setApplicationName(APPLICATION_NAME)
             .build();
-}
+    }
+
+    public static void logout() throws IOException{
+        HttpClient client = new DefaultHttpClient();
+        Credential credential = authorize();
+        HttpPost post = new HttpPost("https://accounts.google.com/o/oauth2/revoke?token="+ credential.getAccessToken());
+        org.apache.http.HttpResponse response = client.execute(post);
+        DATA_STORE_DIR.delete();
+    }
 
 }

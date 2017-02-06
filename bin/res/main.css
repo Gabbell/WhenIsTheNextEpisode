@@ -84,13 +84,21 @@
 	-fx-background-color: #360000;
 }
 
-.combo-box .cell{
-	-fx-text-fill: white;
-}
 .combo-box-popup .list-view .list-cell{
     -fx-background-color: #360000;
 }
 .combo-box-popup .list-view .list-cell:filled:hover {
-    -fx-background-color: white;
-    -fx-text-fill: black;
+    -fx-background-color: #a31818;
+}
+
+#syncSingle {
+    -fx-fill: white;
+}
+#syncAll {
+    -fx-fill: white;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
