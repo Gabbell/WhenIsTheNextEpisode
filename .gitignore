@@ -1,5 +1,12 @@
-.gradle
+
 google-api-java-client
+
+#Gradle and Build
+.gradle
 gradle
 build
 .settings
+out
+
+#Jetbrains
+.idea

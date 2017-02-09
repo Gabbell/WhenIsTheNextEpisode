@@ -135,8 +135,8 @@
                   <GridPane>
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" maxWidth="289.0" minWidth="10.0" prefWidth="142.0" />
-                        <ColumnConstraints hgrow="NEVER" maxWidth="449.0" minWidth="10.0" prefWidth="362.0" />
-                        <ColumnConstraints hgrow="NEVER" maxWidth="449.0" minWidth="10.0" prefWidth="64.0" />
+                        <ColumnConstraints hgrow="NEVER" maxWidth="449.0" minWidth="10.0" prefWidth="350.0" />
+                        <ColumnConstraints hgrow="NEVER" maxWidth="449.0" minWidth="10.0" prefWidth="75.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="111.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -179,7 +179,7 @@
                               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="10.0" layoutY="143.0" text="W0.1" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Label layoutX="10.0" layoutY="143.0" prefHeight="47.0" prefWidth="78.0" text="W0.1a" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

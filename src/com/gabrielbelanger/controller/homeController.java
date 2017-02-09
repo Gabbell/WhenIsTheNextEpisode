@@ -416,7 +416,8 @@ public class homeController implements Initializable {
                     //Creating episode event
                     Event episodeevent = new Event()
                             .setSummary(localWatch.getEntry(watchlistView.getSelectionModel().getSelectedIndex()).getTitle())
-                            .setDescription(jsondb.get("name").toString() + "\n" + "Season " + currentSeason + ", Episode " + episodePointer);
+                            .setDescription(jsondb.get("name").toString() + "\n" + "Season " + currentSeason + ", Episode " + episodePointer)
+                            .setColorId("3");
 
                     //Get airdate and airtime of next episode as string
                     String datestring = jsondb.get("airstamp").toString().replace("\"", "");
