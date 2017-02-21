@@ -1,6 +1,5 @@
 #Gradle
 /.gradle
-gradle
 /build
 
 #IDE
@@ -10,3 +9,7 @@ gradle
 *.class
 /.idea
 /bin
+
+*.iml
+*.ipr
+*.iws
