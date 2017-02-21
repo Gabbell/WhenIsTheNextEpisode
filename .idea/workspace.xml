@@ -2,181 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bee5261-9f3d-4263-bc91-83bb8e295b4d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/WINE_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WINE.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/client_secret.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distributions/WINE-1.0.tar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distributions/WINE-1.0.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/WINE-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/scripts/WINE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/scripts/WINE.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/classpath-include" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/APACHE-LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/BSD-LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/CDDL-LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/css/maven-base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/css/maven-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/css/print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/css/site.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-android-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-appengine-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-gson-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-jackson2-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-java6-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-protobuf-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-servlet-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-api-client-xml-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-android-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-appengine-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-gson-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-jackson-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-jackson2-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-jdo-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-protobuf-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-http-client-xml-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-oauth-client-appengine-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-oauth-client-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-oauth-client-java6-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-oauth-client-jetty-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/google-oauth-client-servlet-dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/close.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/collapsed.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/expanded.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/external.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/icon_error_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/icon_info_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/icon_success_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/icon_warning_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/logos/build-by-maven-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/logos/build-by-maven-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/logos/maven-feather.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/images/newwindow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/dependencies/xpp3_LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/google-api-services-calendar-v3-rev168-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/commons-logging-1.1.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-android-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-appengine-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-gson-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-jackson2-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-java6-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-protobuf-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-servlet-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-api-client-xml-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-android-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-appengine-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-gson-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-jackson-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-jackson2-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-jdo-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-protobuf-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-http-client-xml-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-oauth-client-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-oauth-client-appengine-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-oauth-client-java6-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-oauth-client-jetty-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/google-oauth-client-servlet-1.21.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/gson-2.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/guava-jdk5-17.0-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/httpclient-4.0.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/httpcore-4.0.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/jackson-core-2.1.3-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/jackson-core-asl-1.9.11-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/jdo2-api-2.3-eb-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/jetty-6.1.26-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/jetty-util-6.1.26-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/protobuf-java-2.4.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/transaction-api-1.1-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs-sources/xpp3-1.1.4c-sources.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/commons-logging-1.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-android-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-android-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-appengine-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-gson-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-gson-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-jackson2-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-jackson2-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-java6-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-protobuf-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-protobuf-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-servlet-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-xml-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-api-client-xml-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-android-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-android-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-appengine-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-gson-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-gson-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-jackson-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-jackson-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-jackson2-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-jackson2-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-jdo-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-protobuf-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-protobuf-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-xml-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-http-client-xml-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-1.21.0.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-appengine-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-java6-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-jetty-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/google-oauth-client-servlet-1.21.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/gson-2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/gson-2.1.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/guava-jdk5-17.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/httpclient-4.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/httpcore-4.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jackson-core-2.1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jackson-core-2.1.3.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jackson-core-asl-1.9.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jackson-core-asl-1.9.11.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jdo2-api-2.3-eb.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jetty-6.1.26.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jetty-util-6.1.26.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/jsr305-1.3.9.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/protobuf-java-2.4.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/protobuf-java-2.4.1.jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/transaction-api-1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/libs/xpp3-1.1.4c.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/proguard-google-api-client.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/google-api-java-client/readme.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gson-2.6.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/WINE_jar/WINE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data/local.watchlist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/WINE.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/addicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/eye-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/gearicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/purgeicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/searchicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/res/Home.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/res/Splash.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/res/client_secret.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/res/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$3$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$4$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$5$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$5$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$6$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$6$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$6$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$6$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/homeController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/controller/splashController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/DateManipulator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/Entry.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/GoogleAuth.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/JSonParsing.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/LocalWatchlist$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/LocalWatchlist$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/tools/LocalWatchlist.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/wine/Wine$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/wine/Wine$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/gabrielbelanger/wine/Wine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/data/local.watchlist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/WINE.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/addicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/eye-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/gearicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/placeholder.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/purgeicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/img/searchicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/Home.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/Splash.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/client_secret.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/main.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/Home.fxml" afterPath="$PROJECT_DIR$/bin/res/Home.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gabrielbelanger/controller/homeController.java" afterPath="$PROJECT_DIR$/src/com/gabrielbelanger/controller/homeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gabrielbelanger/tools/GoogleAuth.java" afterPath="$PROJECT_DIR$/src/com/gabrielbelanger/tools/GoogleAuth.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gabrielbelanger/wine/Wine.java" afterPath="$PROJECT_DIR$/src/com/gabrielbelanger/wine/Wine.java" />
     </list>
     <ignored path="WINE_Desktop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1306,15 +1175,15 @@
       <option name="presentableId" value="Default" />
       <updated>1487637141900</updated>
       <workItem from="1487637143150" duration="1250000" />
-      <workItem from="1487639967004" duration="1883000" />
+      <workItem from="1487639967004" duration="2180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3133000" />
+    <option name="totallyTimeSpent" value="3430000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="22" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

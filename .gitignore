@@ -1,11 +1,12 @@
-
-#Gradle and Build
-.gradle
+#Gradle
+/.gradle
 gradle
-build
-.settings
-out
+/build
 
-#Jetbrains
-.idea
+#IDE
+.settings
+/out
+.project
+*.class
+/.idea
 /bin
