@@ -16,7 +16,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#430000" height="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <ImageView fitHeight="126.0" fitWidth="304.0" layoutX="-4.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/WINE.png" />
+            <Image url="@WINE.png" />
          </image>
       </ImageView>
       <Button fx:id="connectButton" layoutX="478.0" layoutY="47.0" mnemonicParsing="false" onAction="#googleConnect" prefHeight="27.0" prefWidth="70.0" styleClass="selectbutton" text="Log In" textFill="WHITE" />
@@ -31,7 +31,7 @@
                         <TextField fx:id="searchField" layoutX="16.0" layoutY="14.0" onAction="#searchDatabase" promptText="Search for Series" />
                         <ImageView fx:id="poster" fitHeight="245.7" fitWidth="162.0" layoutX="390.0" layoutY="9.0" pickOnBounds="true" AnchorPane.topAnchor="15.0">
                            <image>
-                              <Image url="@../img/placeholder.png" />
+                              <Image url="@placeholder.png" />
                            </image></ImageView>
                         <ProgressIndicator fx:id="searchProgress" layoutX="210.0" layoutY="10.0" prefHeight="33.0" prefWidth="20.0" visible="false" />
                         <Label layoutX="14.0" layoutY="43.0" text="Title:" textFill="WHITE">
@@ -97,7 +97,7 @@
                         <Button fx:id="watchlistButton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#addToWatchlist" styleClass="selectbutton" text="Add to Watchlist" visible="false" />
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="179.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/searchicon.png" />
+                              <Image url="@searchicon.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -106,7 +106,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/addicon.png" />
+                        <Image url="@addicon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -125,7 +125,7 @@
                <graphic>
                   <ImageView fitHeight="79.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/eye-icon.png" />
+                        <Image url="@eye-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -167,7 +167,7 @@
                            <graphic>
                               <ImageView fitHeight="21.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../img/purgeicon.png" />
+                                    <Image url="@purgeicon.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
@@ -193,7 +193,7 @@
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/gearicon.png" />
+                        <Image url="@gearicon.png" />
                      </image>
                   </ImageView>
                </graphic></Tab>

@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
+import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
@@ -62,7 +62,7 @@ public class GoogleAuth {
 	public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-        	new FileInputStream("C:/Users/Gabriel/git/WINE_Desktop/src/res/client_secret.json"); ; //TODO Relative path plz
+        	new FileInputStream("C:/Users/Gabriel/git/WINE_Desktop/res/client_secret.json"); ; //TODO Relative path plz
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 

@@ -1,0 +1,28 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.gabrielbelanger.wine.Wine"
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+		resources {
+			srcDirs = ['res'] 
+		}
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'com.google.apis:google-api-services-calendar:v3-rev234-1.22.0'
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.6'
+	compile group: 'com.google.oauth-client', name: 'google-oauth-client-jetty', version: '1.22.0'
+	compile group: 'com.google.oauth-client', name: 'google-oauth-client-java6', version: '1.22.0'
+
+}

@@ -307,7 +307,7 @@ public class homeController implements Initializable {
 
                         Platform.runLater(new Runnable() {
                             public void run() {
-                                statusCircle.setFill(Color.RED); //Connection was successful, light is green
+                                statusCircle.setFill(Color.web("#bc0000")); //Logging out light is red
                                 statusLabel.setText("Google account disconnected");
                                 connectButton.setText("Log In");
                             }

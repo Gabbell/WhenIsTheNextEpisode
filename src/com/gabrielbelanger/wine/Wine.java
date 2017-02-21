@@ -32,13 +32,14 @@ public class Wine extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader splashLoader = new FXMLLoader(getClass().getResource("/res/Splash.fxml"));
+
+		FXMLLoader splashLoader = new FXMLLoader(getClass().getResource("/Splash.fxml"));
 		
 		splashRoot = splashLoader.load();
 		
 		mainScene = new Scene(splashRoot, WIDTH, HEIGHT);
 		
-		primaryStage.getIcons().add(new Image("/img/icon.png"));
+		primaryStage.getIcons().add(new Image("/icon.png"));
 		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.setTitle("When Is the Next Episode?");
 		primaryStage.setScene(mainScene);
@@ -48,7 +49,7 @@ public class Wine extends Application{
 	}
 	
 	public void showHome(Stage primaryStage) throws IOException{
-		FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("/res/Home.fxml"));
+		FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("/Home.fxml"));
 		homeRoot = homeLoader.load();
 		
 		//Make window draggable

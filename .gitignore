@@ -1,6 +1,4 @@
 
-google-api-java-client
-
 #Gradle and Build
 .gradle
 gradle
@@ -10,3 +8,4 @@ out
 
 #Jetbrains
 .idea
+/bin
